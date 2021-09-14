@@ -17,10 +17,25 @@ export class CadastroFilmesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.cadastro = this.fb.group({
-      titulo: ['', [Validators.required]]
+      titulo: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
+      urlFoto: ['', [Validators.minLength(10)]],
+      dtLancamento: ['', [Validators.required]],
+      descricao: [''],
+      nota: [0, [Validators.required, Validators.min(0), Validators.max(10)]],
+      urlIMDB: ['', [Validators.minLength(10)]],
+      genero: ['', [Validators.required]]
     });
+  }
+
+  salvar(): void {
+    this.cadastro.markAllAsTouched();
+    if(this.cadastro.invalid) return;
+    alert("SUCESSO!!");
+  }
+
+  reiniciarForm(): void {
+    this.cadastro.reset();
   }
 
 }
