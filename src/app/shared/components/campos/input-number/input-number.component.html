@@ -7,7 +7,7 @@
             [step]="step"
             [placeholder]="titulo"
             [name]="controlName"
-            [formControlname]="controlName" >
+            [formControlName]="controlName" >
     <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'required')">Campo obrigatório.</mat-error>
     <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'minlength')">
       Campo precisa ter no minimo {{ validacao.lengthValidar(formControl, 'min') }} caracteres.
